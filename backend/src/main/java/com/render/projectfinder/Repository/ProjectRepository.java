@@ -1,0 +1,35 @@
+package com.render.projectfinder.Repository;
+
+import com.render.projectfinder.Entity.Project;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import java.util.List;
+
+public interface ProjectRepository extends JpaRepository<Project, Long> {
+
+    // Main query for project with given tags
+    @Query(
+        value = """
+        WITH tid AS (
+          SELECT id FROM tags WHERE name = ANY(:taglist)
+        ),
+        pid AS (
+          SELECT project_id
+          FROM project_tags
+          WHERE tag_id IN (SELECT id FROM tid)
+          GROUP BY project_id
+          HAVING COUNT(DISTINCT tag_id) = (SELECT COUNT(*) FROM tid)
+        )
+        SELECT * 
+        FROM projects 
+        WHERE id IN (SELECT project_id FROM pid);
+        """, 
+        nativeQuery = true
+    )
+    //WE ARE DEFINING A FUNCTION HERE THAT'S DOING THIS SQL QUERY
+    //outputs a list of Projects, takes in a taglist(given by service file)
+    List<Project> findProjectsByAllTags(@Param("taglist") List<String> taglist);
+
+    // TODO: add a 'query for all tags for a project' function
+}
