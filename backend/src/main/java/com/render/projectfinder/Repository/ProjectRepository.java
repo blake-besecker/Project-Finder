@@ -12,7 +12,7 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
     @Query(
         value = """
         WITH tid AS (
-          SELECT id FROM tags WHERE name = ANY(:taglist)
+          SELECT id FROM tags WHERE name = ANY(cast(:taglist as text[]))
         ),
         pid AS (
           SELECT project_id
@@ -23,13 +23,18 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
         )
         SELECT * 
         FROM projects 
-        WHERE id IN (SELECT project_id FROM pid);
+        WHERE id IN (SELECT project_id FROM pid)
+        """,
+        nativeQuery = true
+    )
+    List<Project> findProjectsByAllTags(@Param("taglist") String[] taglist);
+
+    // TODO: add a 'query for all tags in the database' function
+    @Query(
+        value = """
+        select name from tags
         """, 
         nativeQuery = true
     )
-    //WE ARE DEFINING A FUNCTION HERE THAT'S DOING THIS SQL QUERY
-    //outputs a list of Projects, takes in a taglist(given by service file)
-    List<Project> findProjectsByAllTags(@Param("taglist") List<String> taglist);
-
-    // TODO: add a 'query for all tags for a project' function
+    List<String> getAllTags();
 }

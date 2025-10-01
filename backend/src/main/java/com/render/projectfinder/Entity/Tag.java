@@ -1,6 +1,8 @@
 package com.render.projectfinder.Entity;
-
+import java.util.ArrayList;
+import java.util.List;
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "Tags")
@@ -13,4 +15,10 @@ public class Tag {
     @Column(nullable = false, unique = true)
     private String name;
 
+    @JsonIgnore
+    @ManyToMany(mappedBy = "tags" )
+    private List<Project> projects = new ArrayList<>();
+
+    public Long getId() { return id; }
+    public String getName() { return name; }
 }
