@@ -3,6 +3,9 @@ import ReactDOM from "react-dom/client";
 import "./App.css";
 import Header from "./Header.tsx"
 function Main(){
+
+
+
   return(<div>
     <Header></Header>
   </div>

@@ -1,10 +1,15 @@
 
 import { useState, useEffect } from "react"
 import type { Dispatch, SetStateAction } from "react";
-const URL = ''
-
+const URL = 'http://localhost:8080/projects'
+type ProjectType = {
+  id: number
+  title: string;
+  link: string;
+  tags: string[];
+};
 type searchFunctions = {
-    setResults: Dispatch<SetStateAction<string>>
+    setResults: Dispatch<SetStateAction<ProjectType[]>>
 }
 
 
@@ -16,9 +21,6 @@ function Searchbar({setResults} : searchFunctions){
     useEffect(() => {
         const timeout = setTimeout(() => {
         let parts = input.trim().split(" ").filter(tag => tag.length > 0);
-        if (!input.endsWith(" ")) {
-            parts = parts.slice(0, -1); 
-        }
         setTags(parts);
         }, 300);
         return () => clearTimeout(timeout);
@@ -28,8 +30,11 @@ function Searchbar({setResults} : searchFunctions){
     useEffect(() => {
         const fetchProjects = async () => {
             const result = await fetch(URL, {
-                method: "GET",
-                body: JSON.stringify({tags})
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json" 
+                },
+                body: JSON.stringify(tags)
             })
             result.json().then((json) => {
                 setResults(json)
@@ -38,7 +43,7 @@ function Searchbar({setResults} : searchFunctions){
         fetchProjects();
     }, [tags]);
 
-    return(<div className="searchInterface">
+    return(<div>
             <h1 className="searchTitle">Project Hunter</h1>
         <input type="text" value={input} onChange={e => setInput(e.target.value)} className="searchInput"/>
         </div>

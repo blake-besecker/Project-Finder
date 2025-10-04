@@ -30,11 +30,4 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
     List<Project> findProjectsByAllTags(@Param("taglist") String[] taglist);
 
     // TODO: add a 'query for all tags in the database' function
-    @Query(
-        value = """
-        select name from tags
-        """, 
-        nativeQuery = true
-    )
-    List<String> getAllTags();
 }

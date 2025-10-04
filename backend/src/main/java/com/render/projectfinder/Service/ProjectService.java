@@ -1,13 +1,11 @@
 package com.render.projectfinder.Service;
 
-import com.render.projectfinder.Entity.Project;
-
-import com.render.projectfinder.Repository.ProjectRepository;
-
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Service;
+
+import com.render.projectfinder.Entity.Project;
+import com.render.projectfinder.Repository.ProjectRepository;
 
 @Service
 public class ProjectService {
@@ -18,16 +16,16 @@ public class ProjectService {
         this.projectRepository = projectRepository;
     }
 
-    public List<String> cleanTagList(List<String> taglist) {
-        List<String> cleanedTagList = new ArrayList<>();
-        List<String> allTags = projectRepository.getAllTags().stream().map(tag -> tag.toLowerCase()).collect(Collectors.toList());;
-        for (int i = 0; i<taglist.size();i++) {
-            if (allTags.contains(taglist.get(i).toLowerCase())) {
-                cleanedTagList.add(taglist.get(i));
-            }
-        }
-        return cleanedTagList;
-    }
+    // public List<String> cleanTagList(List<String> taglist) {
+    //     List<String> cleanedTagList = new ArrayList<>();
+    //     List<String> allTags = projectRepository.getAllTags().stream().map(tag -> tag.toLowerCase()).collect(Collectors.toList());;
+    //     for (int i = 0; i<taglist.size();i++) {
+    //         if (allTags.contains(taglist.get(i).toLowerCase())) {
+    //             cleanedTagList.add(taglist.get(i));
+    //         }
+    //     }
+    //     return cleanedTagList;
+    // }
 
     public List<Project> getProjectsFromTags(List<String> taglist) {
         //taglist = cleanTagList(taglist);

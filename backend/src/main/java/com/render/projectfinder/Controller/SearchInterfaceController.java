@@ -1,17 +1,19 @@
 package com.render.projectfinder.Controller;
 
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.render.projectfinder.Entity.Project;
 import com.render.projectfinder.Entity.ProjectDTO;
 import com.render.projectfinder.Entity.Tag;
 import com.render.projectfinder.Service.ProjectService;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
-import java.util.List;
-
-import org.springframework.http.ResponseEntity;
-
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 public class SearchInterfaceController {
 
