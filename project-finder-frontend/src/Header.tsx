@@ -2,14 +2,18 @@
 import { useState, useEffect } from "react"
 import Searchbar from "./Searchbar";
 import SearchResults from "./SearchResults"; 
-
+import type { Dispatch ,SetStateAction} from "react";
 type ProjectType = {
   id: number;
   title: string;
   link: string;
   tags: string[];
 };
-function Header(){
+type searchFunctions = {
+    input: string;
+    setInput: Dispatch<SetStateAction<string>>;
+}
+function Header({input , setInput}: searchFunctions){
 
     const [tab, setTab] = useState("search");
 
@@ -36,7 +40,7 @@ function Header(){
         </div>
         <div className="tabContent">
         
-        <Searchbar setResults={setResults}></Searchbar>
+        <Searchbar input={input} setInput={setInput} setResults={setResults}></Searchbar>
 
         <SearchResults projects={results} page={page} setPage={setPage}/>
         <button className="pageButtonBack" onClick={()=>{if (page>=1) setPage(page-1);}}>back</button>
@@ -56,8 +60,8 @@ function Header(){
         <button className="searchTabButton" onClick={() => {setTab("search");}}>Search</button>
         
         </div>
-        <div>
-            <p className="tabContent">this is some about text</p>
+        <div className="tabContent">
+            <p className="aboutText">this is some about text</p>
         </div>
         
         

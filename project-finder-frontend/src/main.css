@@ -1,12 +1,27 @@
+html, body {
+  height: 100%;
+  margin: 0;          
+  padding: 0;
+}
+
+.siteContainer {
+  background: dimgrey;
+  min-height: 100vh; 
+  padding-bottom: 2%;
+}
+
+
 .projectCard {
-  border: 1px black solid;
-  position: relative; 
+  border: 5px;
+  position: relative;
+  background-color: whitesmoke;
+  border-color: firebrick;
   border-radius: 10px;
   box-shadow: 2px 2px 2px;
   padding: 2px;
   margin: 1px;
   height: 100%;
-  width: 90%;
+  width: 94%;
   justify-content: space-between;
   align-items: center;
 }
@@ -19,38 +34,44 @@
   background-image: url('/public/external_link.png');
   background-size: cover;
   border: none;
-  background-color: white;
+  background-color: whitesmoke;
   cursor: pointer;
 }
 
 .projectCardText {
   text-align: left;
-  max-height: 1%;
   font-size: small;
+  font-family: Courier;
+  margin: 2%;
   
 }
 
 .searchDescription {
   font-size: small;
+  font-family: Courier;
+  color: whitesmoke;
 }
 
 .searchInput {
   border-radius: 2px;
-  border: 1px black solid;
+  border: 1px dimgrey;
   width: 65%;
   height: 50%;
   font-size: large;
+  font-family: Courier;
 }
 
   .tabContent {
   margin: 2rem auto;
+  margin-top: 5%;
   height: 20%;
   width: 75%;          
   text-align: center;
+  right: 0;
 }
 
 .Header {
-  background-color: red;
+  background-color: firebrick;
   display: flex;
   flex-direction: row;
 }
@@ -59,7 +80,7 @@
 .aboutTabButton {
   background: none;       
   border: none;           
-  color: white;            
+  color: whitesmoke;            
   cursor: pointer;    
   padding: 10px;
   padding-left: 30%;
@@ -67,7 +88,17 @@
   font-family: Courier;
 }
 
+.pageButtonForward,
+.pageButtonBack {
+  font-family: Courier;
+  background-color: whitesmoke;
+}
 
+.pageCounter {
+  margin-bottom: 1%;
+  font-family: Courier;
+  color: whitesmoke;
+}
 
 .logo {
   font-size: medium;
@@ -75,6 +106,15 @@
 }
 
 .Sidebar {
+  margin-top: 4%;
+  margin-left: 1.5%;
   display: block;
   position: absolute;
+  color: whitesmoke;
+  font-family: Courier;
+}
+
+.aboutText {
+  font-family: Courier;
+  color: whitesmoke;
 }

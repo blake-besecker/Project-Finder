@@ -1,5 +1,6 @@
 package com.render.projectfinder.Service;
 
+import java.util.HashSet;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -29,9 +30,29 @@ public class ProjectService {
     // }
 
     public List<Project> getProjectsFromTags(List<String> taglist) {
-        //taglist = cleanTagList(taglist);
         String[] tags = taglist.toArray(new String[0]);
-        return projectRepository.findProjectsByAllTags(tags);
+
+        String cleanTag;
+
+        Tag[] dbTags = getAllTags().toArray(new Tag[0]); //questionable
+
+        HashSet<String> finalTagList = new HashSet<>(); //final formatted list of tags with invalids removed
+
+        for (String tag : tags) {
+            cleanTag = tag.replaceAll("[^a-zA-Z0-9_]", "");
+            cleanTag = cleanTag.toLowerCase();
+
+            for (int i = 0; i<dbTags.length; i++) {
+                if (cleanTag.equals(dbTags[i].getName().toLowerCase())) {
+                    finalTagList.add(cleanTag);
+                }
+            }
+            
+        }
+
+        String[] finalTagArray = finalTagList.toArray(new String[0]);
+
+        return projectRepository.findProjectsByAllTags(finalTagArray);
     }
 
     public List<Tag> getAllTags() {

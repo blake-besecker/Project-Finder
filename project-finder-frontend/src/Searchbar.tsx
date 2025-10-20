@@ -9,12 +9,13 @@ type ProjectType = {
   tags: string[];
 };
 type searchFunctions = {
-    setResults: Dispatch<SetStateAction<ProjectType[]>>
+    setResults: Dispatch<SetStateAction<ProjectType[]>>;
+    input: string;
+    setInput: Dispatch<SetStateAction<string>>;
 }
 
 
-function Searchbar({setResults} : searchFunctions){
-    const [input, setInput] = useState("");
+function Searchbar({setResults, input, setInput} : searchFunctions){
     
     const [tags, setTags] = useState<string[]>([]);
 
@@ -44,7 +45,6 @@ function Searchbar({setResults} : searchFunctions){
     }, [tags]);
 
     return(<div>
-            <h1 className="searchTitle">Project Hunter</h1>
             <p className="searchDescription">please separate tags by spaces and type an underscore for spaces within tags</p>
         <input type="text" value={input} onChange={e => setInput(e.target.value)} className="searchInput"/>
         </div>

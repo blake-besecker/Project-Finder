@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
+import type { Dispatch, SetStateAction } from "react";
 type TagType = {
   id: number;
   name: string;
 };
+type searchFunctions = {
+    setInput: Dispatch<SetStateAction<string>>;
+}
 const URL = 'http://localhost:8080/tags'
-function Sidebar() {
+function Sidebar({setInput}: searchFunctions) {
 
     const [taglist, setTaglist] = useState<TagType[]>([]);
 
@@ -30,6 +34,12 @@ function Sidebar() {
         fetchTags();
     },[])
 
+    //TODO: add function
+    const searchTag = () => {
+        setInput("hi");
+    };
+
+
     return(
     <div className="Sidebar">
         <h2 className="sidebarTitle">
@@ -38,7 +48,7 @@ function Sidebar() {
     <ul>
         {taglist.map((tag) => (
             <div key={tag.id}>
-            <p className="tagEntry">
+            <p onClick={searchTag} className="tagEntry">
                 {tag.name}
             </p>
             </div>
