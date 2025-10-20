@@ -50,39 +50,31 @@
 }
 
 .Header {
-  text-align: center;
-  border-bottom: 1px solid black;
-  position: relative;
+  background-color: red;
+  display: flex;
+  flex-direction: row;
 }
 
 .searchTabButton,
 .aboutTabButton {
-  margin: 1%;
-  padding-left: 1%;
-  padding-right: 1%;
-  padding-top: 1%;
-  padding-bottom: 1%;
+  background: none;       
+  border: none;           
+  color: white;            
+  cursor: pointer;    
+  padding: 10px;
+  padding-left: 30%;
+  font-size: xx-large;
+  font-family: Courier;
 }
 
-.aboutTabButton {
-    margin-left: 0%;
-}
+
 
 .logo {
-  padding-left: 30%;
-  margin-top: 1%;
-  height: 1%;
-  width: auto;
+  font-size: medium;
+  width: 6%;
 }
 
 .Sidebar {
+  display: block;
   position: absolute;
-  left: 0;
-  margin: 1%;
-  border-right: 1px solid black;
-  padding-right: 1%;
-}
-
-.tagEntry {
-  font-size: 14px;
 }

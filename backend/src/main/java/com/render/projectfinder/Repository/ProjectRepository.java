@@ -15,7 +15,7 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
     @Query(
         value = """
         WITH tid AS (
-          SELECT id FROM tags WHERE name = ANY(cast(:taglist as text[]))
+          SELECT id FROM tags WHERE lower(name) = ANY(cast(:taglist as text[]))
         ),
         pid AS (
           SELECT project_id

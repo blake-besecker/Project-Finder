@@ -29,10 +29,10 @@ function Header(){
         return (
             <div>
         <div className="Header">
-        
+        <img className = "logo" src='/public/logo.png'></img>
         <button className="aboutTabButton" onClick={() => {setTab("about");}}>About</button>
         <button className="searchTabButton" onClick={() => {setTab("search");}}>Search</button>
-        <img className = "logo" src='/public/logo.png'></img>
+        
         </div>
         <div className="tabContent">
         
@@ -51,10 +51,10 @@ function Header(){
         return (
             <div>
         <div className="Header">
-        
+        <img className = "logo" src='/public/logo.png'></img>
         <button className="aboutTabButton" onClick={() => {setTab("about");}}>About</button>
         <button className="searchTabButton" onClick={() => {setTab("search");}}>Search</button>
-        <img className = "logo" src='/public/logo.png'></img>
+        
         </div>
         <div>
             <p className="tabContent">this is some about text</p>

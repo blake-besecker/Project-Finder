@@ -7,9 +7,10 @@ function Main(){
 
 
 
-  return(<div>
-     <Sidebar></Sidebar>
+  return(<div className="siteContainer">
+     
     <Header></Header>
+    <Sidebar></Sidebar>
     
    
   </div>

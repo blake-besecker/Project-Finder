@@ -32,9 +32,9 @@ function Sidebar() {
 
     return(
     <div className="Sidebar">
-        <h1 className="sidebarTitle">
-            Available Tags
-        </h1>
+        <h2 className="sidebarTitle">
+            Tags
+        </h2>
     <ul>
         {taglist.map((tag) => (
             <div key={tag.id}>
