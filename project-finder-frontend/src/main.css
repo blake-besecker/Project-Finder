@@ -6,16 +6,18 @@ html, body {
 
 .siteContainer {
   background: dimgrey;
+  background-image: url('/public/greedisland.jpg');
+  background-size: cover;
   min-height: 100vh; 
   padding-bottom: 2%;
 }
 
 
 .projectCard {
-  border: 5px;
+  border: 10%;
   position: relative;
   background-color: whitesmoke;
-  border-color: firebrick;
+  border-color: darkgreen;
   border-radius: 10px;
   box-shadow: 2px 2px 2px;
   padding: 2px;
@@ -49,7 +51,7 @@ html, body {
 .searchDescription {
   font-size: small;
   font-family: Courier;
-  color: whitesmoke;
+  color: darkgreen;
 }
 
 .searchInput {
@@ -71,7 +73,7 @@ html, body {
 }
 
 .Header {
-  background-color: firebrick;
+  background-color: darkgreen;
   display: flex;
   flex-direction: row;
 }
@@ -102,6 +104,7 @@ html, body {
 
 .logo {
   font-size: medium;
+  background-image: url('/public/logo.png');
   width: 6%;
 }
 
@@ -110,7 +113,7 @@ html, body {
   margin-left: 1.5%;
   display: block;
   position: absolute;
-  color: whitesmoke;
+  color: darkgreen;
   font-family: Courier;
 }
 
