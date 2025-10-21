@@ -16,7 +16,7 @@ FROM eclipse-temurin:17-jdk
 WORKDIR /app
 
 # Copy the jar from the build stage
-COPY --from=build /app/target/project-finder-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=build /app/target/demo-0.0.1-SNAPSHOT.jar app.jar
 
 # Expose port 8080
 EXPOSE 8080
