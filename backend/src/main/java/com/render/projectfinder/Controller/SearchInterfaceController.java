@@ -15,7 +15,7 @@ import com.render.projectfinder.Entity.Tag;
 import com.render.projectfinder.Entity.TagDTO;
 import com.render.projectfinder.Service.ProjectService;
 
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "*")
 @RestController
 public class SearchInterfaceController {
 
