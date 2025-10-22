@@ -6,9 +6,9 @@ type ProjectProps = {
 
 function Project({ title, link, tags }: ProjectProps) {
     return(<div className="projectCard">
-        <form action={link}>
-          <input className="projectCardButton" type='submit' value=''></input>
-        </form> 
+          <a href={link} target="_blank" rel="noopener noreferrer">
+            <input className="projectCardButton" type="button" />
+          </a>
         <h2 className="projectCardText">{title}</h2> 
         <p className="projectCardText">{tags.join(", ")}</p>
         </div>);
