@@ -15,7 +15,7 @@ import com.render.projectfinder.Entity.Tag;
 import com.render.projectfinder.Entity.TagDTO;
 import com.render.projectfinder.Service.ProjectService;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://projecthunter.vercel.app/")
 @RestController
 public class SearchInterfaceController {
 
