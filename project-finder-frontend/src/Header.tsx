@@ -55,7 +55,7 @@ function Header({input , setInput}: searchFunctions){
         return (
             <div>
         <div className="Header">
-        <img className = "logo" src='/public/logo.png'></img>
+        <img className = "logo" src='/logo.png'></img>
         <button className="aboutTabButton" onClick={() => {setTab("about");}}>About</button>
         <button className="searchTabButton" onClick={() => {setTab("search");}}>Search</button>
         
