@@ -6,7 +6,7 @@ html, body {
 
 .siteContainer {
   background: dimgrey;
-  background-image: url('/public/greedisland.jpg');
+  background-image: url('/greedisland.jpg');
   background-size: cover;
   min-height: 100vh; 
   padding-bottom: 2%;
@@ -33,7 +33,7 @@ html, body {
   right: 5px;
   width: 20px;
   height: 20px;
-  background-image: url('/public/external_link.png');
+  background-image: url('/external_link.png');
   background-size: cover;
   border: none;
   background-color: whitesmoke;
