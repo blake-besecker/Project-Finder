@@ -61,7 +61,9 @@ function Header({input , setInput}: searchFunctions){
         
         </div>
         <div className="tabContent">
-            <p className="aboutText">this is some about text</p>
+            <p className="aboutText">Thank you for using Project Hunter!</p>
+          <p className="aboutText">Search for projects by typing tags into the searchbar on the 'search' tab</p>
+          <p className="aboutText">Tags available for search are on the sidebar on the left, spaces between tags and underscores for spaces between the actual words</p>
         </div>
         
         
