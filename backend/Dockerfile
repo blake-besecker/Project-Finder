@@ -1,24 +1,24 @@
-FROM eclipse-temurin:21-jdk AS builder
+
+FROM maven:3.9.4-eclipse-temurin-17 AS build
 WORKDIR /app
-
-# Copy only pom.xml first for caching
 COPY pom.xml .
-COPY .mvn .mvn
 COPY mvnw .
+COPY .mvn .mvn
 
-# Pre-download dependencies
 RUN ./mvnw dependency:go-offline -B
 
-# Then copy the rest of the source
 COPY src ./src
 
-# Build
 RUN ./mvnw clean package -DskipTests
 
-# Run stage
-FROM eclipse-temurin:21-jdk
+FROM eclipse-temurin:17-jdk
 WORKDIR /app
-COPY --from=builder /app/target/*.jar app.jar
+
+COPY --from=build /app/target/*.jar app.jar
+
+EXPOSE 8080
+
 ENTRYPOINT ["java","-jar","app.jar"]
+
 
 
