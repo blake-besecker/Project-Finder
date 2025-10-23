@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react"
 import type { Dispatch, SetStateAction } from "react";
-const URL = 'https://projecthunter-production-7f33.up.railway.app/projects'
+const URL = 'https://projecthunter-production.up.railway.app/projects'
 type ProjectType = {
   id: number
   title: string;
