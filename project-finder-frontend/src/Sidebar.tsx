@@ -7,7 +7,7 @@ type TagType = {
 type searchFunctions = {
     setInput: Dispatch<SetStateAction<string>>;
 }
-const URL = 'https://projecthunter-production-7f33.up.railway.app/tags'
+const URL = 'https://projecthunter-production.up.railway.app/tags'
 function Sidebar({setInput}: searchFunctions) {
 
     const [taglist, setTaglist] = useState<TagType[]>([]);
