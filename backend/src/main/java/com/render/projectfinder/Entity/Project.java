@@ -18,7 +18,7 @@ public class Project {
     @Column(nullable = false, unique = true)
     private String link;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
         name = "project_tags",
         joinColumns = @JoinColumn(name = "project_id"),
