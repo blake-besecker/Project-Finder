@@ -47,7 +47,7 @@ function Sidebar({setInput}: searchFunctions) {
         </h2>
     <ul>
         {taglist.map((tag) => (
-            <div key={tag.id}>
+            <div key={tag.id} className="sidebarText">
             <p onClick={searchTag} className="tagEntry">
                 {tag.name}
             </p>
