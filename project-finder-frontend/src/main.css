@@ -128,4 +128,5 @@ html, body {
 .aboutText {
   font-family: Courier;
   color: darkgreen;
+  font-size: small;
 }
