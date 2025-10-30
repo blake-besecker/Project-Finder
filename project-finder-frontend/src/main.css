@@ -56,7 +56,7 @@ html, body {
 
 .searchInput {
   border-radius: 2px;
-  border: 1px dimgrey;
+  border: 1px solid black;
   width: 65%;
   height: 50%;
   font-size: large;
@@ -94,12 +94,13 @@ html, body {
 .pageButtonBack {
   font-family: Courier;
   background-color: whitesmoke;
+  border: 1px solid black;
 }
 
 .pageCounter {
   margin-bottom: 1%;
   font-family: Courier;
-  color: whitesmoke;
+  color: darkgreen;
 }
 
 .logo {
@@ -114,6 +115,14 @@ html, body {
   position: absolute;
   color: darkgreen;
   font-family: Courier;
+}
+
+.sidebarText {
+  background-color: whitesmoke;
+  border: 2px solid darkgreen;
+  padding-left: 2px;
+  padding-right: 2px;
+  line-height: 1.2px;
 }
 
 .aboutText {
